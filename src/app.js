@@ -27,6 +27,12 @@
             reset();
         };
 
+        $scope.removeAllTask = function () {
+            taskService.removeAll();
+            reset();
+        };
+
+
         $scope.taskChanged = function (task) {
             taskService.update();
         };
@@ -65,13 +71,18 @@
             localStorage[taskListStore] = angular.toJson(taskList);
         };
 
+        this.removeAll = function() {
+            _.remove(taskList);
+            localStorage[taskListStore] = angular.toJson(taskList);
+        };
+
         this.update = function() {
             localStorage[taskListStore] = angular.toJson(taskList);
         };
     }
     // constructor function called with new
     // has to fill already created service instance
-    appModule.service("taskService", createService);
+    appModule.service('taskService', createService);
 
 })();
 

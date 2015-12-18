@@ -20,9 +20,10 @@
 </head>
 
 <body ng-controller="TasksCtrl">
-<input type="text" ng-model="task.name">
+<input type="text" ng-model="task.name" ng-click="task.name = null">
 <button ng-click="addTask()">Add</button>
 <button ng-click="removeTask()">Remove</button>
+<button ng-click="removeAllTask()">Remove All</button>
 <br/>
 Show completed:
 <input type="checkbox" ng-model="showCompleted"/>
